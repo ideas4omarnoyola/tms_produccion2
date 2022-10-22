@@ -58,19 +58,18 @@
 
         // Audios------------------------------------------------------
         const audio = [
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3')
+            new Audio('../audios/TMS_OEA_M2_07_1.mp3')
         ]
 
         const audioReglas = [
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_2.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_3.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_4.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_5.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_6.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_7.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_8.mp3'),
+            new Audio('../audios/TMS_OEA_M2_07_9.mp3')
         ]
 
         // Al cargarse la página
@@ -80,12 +79,8 @@
         });
 
         function iniciarContenido(){
-            aplicacion.reproducirAudio(audio[0], dialogo, 1);
+            aplicacion.reproducirAudio(audio[0], reglas, 1);
             animacionEntrada(texto, 'default', 1, 1);
-        }
-
-        function dialogo(){
-            aplicacion.reproducirAudio(audio[1], reglas, 1);
             animacionEntrada(d1, 'default', 1, 1);
         }
 

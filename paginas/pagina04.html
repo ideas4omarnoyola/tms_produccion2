@@ -22,9 +22,9 @@
 </head>
 <body class="pagina">
     <img class="elementos" id="texto" src="../img/pagina04/texto.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos" id="d1" src="../img/pagina04/d1.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="d2" src="../img/pagina04/d2.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="boton" src="../img/pagina04/boton.png" data-posX="427" data-posY="33" alt="">
+    <img class="elementos" id="d1" src="../img/pagina04/d1.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="pop" src="../img/pagina04/pop.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="cerrar" src="../img/pagina04/cerrar.png" data-posX="762" data-posY="151" alt="">
 
@@ -44,10 +44,9 @@
 
         // Audios------------------------------------------------------
         const audio = [
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3')
+            new Audio('../audios/TMS_OEA_M2_04_1.mp3'),
+            new Audio('../audios/TMS_OEA_M2_04_2.mp3'),
+            new Audio('../audios/TMS_OEA_M2_04_3.mp3')
         ]
 
         // Al cargarse la página
@@ -64,11 +63,7 @@
         }
 
         function dialogo() {  
-            aplicacion.reproducirAudio(audio[1], instruccion, 1);
-        }
-
-        function instruccion() {  
-            aplicacion.reproducirAudio(audio[2], verInfo, 1);
+            aplicacion.reproducirAudio(audio[1], verInfo, 1);
             animacionSalida(d1, 'derecha-izquierda', 1);
             animacionEntrada(d2, 'derecha-izquierda', 1);
         }
@@ -78,7 +73,7 @@
         }
 
         boton.click(function(){
-            aplicacion.reproducirAudio(audio[3], cerrando, 1);
+            aplicacion.reproducirAudio(audio[2], cerrando, 1);
             animacionEntrada(pop, 'default', 1);
             dejarParpadear(boton);
         });

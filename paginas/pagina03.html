@@ -40,10 +40,8 @@
 
         // Audios------------------------------------------------------
         const audio = [
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3'),
-            new Audio('../audios/Audio0.mp3')
+            new Audio('../audios/TMS_OEA_M2_03_1.mp3'),
+            new Audio('../audios/TMS_OEA_M2_03_2.mp3')
         ]
 
         // Al cargarse la página
@@ -59,20 +57,12 @@
         }
 
         function dialogo(){
-            aplicacion.reproducirAudio(audio[1], dialogo2, 1);
-        }
-
-        function dialogo2(){
-            aplicacion.reproducirAudio(audio[2], dialogo3, 1);
+            aplicacion.reproducirAudio(audio[1], finalPagina, 1);
             animacionEntrada(texto2, 'default', 1, 1);
         }
 
-        function dialogo3(){
-            aplicacion.reproducirAudio(audio[3], finalPagina, 1);
-            animacionEntrada(texto3, 'default', 1, 1);
-        }
-
         function finalPagina(){
+            animacionEntrada(texto3, 'default', 1, 1);
             aplicacion.terminaPantalla();
         }
 

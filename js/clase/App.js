@@ -28,11 +28,12 @@ function siguientePagina(){
             paginasVistas++;
         }
 
+        noPagina++;
+
         if(noPagina == totalPaginas - 1){
             statusCurso('completed');
         }
-
-        noPagina++;
+        
         detenerAudios();
         actualizarTemario();
         desactivarBotonAdelante();
