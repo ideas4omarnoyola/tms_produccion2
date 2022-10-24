@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 10</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+
+    <img class="elementos" id="fondo" src="../img/pagina10/fondo.png" data-posX="0" data-posY="0"/>  
+
+    <img class="elementos" id="esquema1" src="../img/pagina10/esquema1.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="esquema2" src="../img/pagina10/esquema2.png" data-posX="0" data-posY="0"/>
+    
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const fondo = $('#fondo');
+ 
+        const esquema1 = $('#esquema1');
+        const esquema2 = $('#esquema2');
+
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M2_10_1.mp3'),
+            new Audio('../audios/TMS_OEA_M2_10_2.mp3'),
+            new Audio('../audios/TMS_OEA_M2_10_3.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutaEsquema1, 1);
+            animacionEntrada(fondo, 'default', 1); 
+        }
+
+        function locutaEsquema1(){
+            aplicacion.reproducirAudio(audio[1], locutaEsquema2, 1);
+            animacionEntrada(esquema1, 'derecha-izquierda', 1, 1);
+        }
+        function locutaEsquema2(){
+            aplicacion.reproducirAudio(audio[2], finalPagina, 1);
+            animacionEntrada(esquema2, 'derecha-iazquierda', 1, 1);
+        }
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>
