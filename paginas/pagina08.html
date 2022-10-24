@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 08</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+
+    <img class="elementos" id="fondo" src="../img/pagina08/fondo.png" data-posX="0" data-posY="0"/>  
+    <img class="elementos" id="instrucciones" src="../img/pagina08/instrucciones.png" data-posX="0" data-posY="0"/>
+
+    <img class="elementos" id="btn01" src="../img/pagina08/btn01.png" data-posX="330" data-posY="156"/>
+    <img class="elementos" id="btn02" src="../img/pagina08/btn02.png" data-posX="330" data-posY="313"/>
+ 
+    <img class="elementos" id="info01" src="../img/pagina08/info01.png" data-posX="485" data-posY="165"/>
+    <img class="elementos" id="info02" src="../img/pagina08/info02.png" data-posX="485" data-posY="328"/>
+
+    
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const fondo = $('#fondo');
+        const instrucciones = $('#instrucciones');
+
+        const btn01 = $('#btn01');
+        const btn02 = $('#btn02');
+
+        const info01 = $('#info01');
+        const info02 = $('#info02');
+
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M2_08_1.mp3'),
+            new Audio('../audios/TMS_OEA_M2_08_2.mp3'),
+            new Audio('../audios/TMS_OEA_M2_08_3.mp3'),
+            new Audio('../audios/TMS_OEA_M2_08_4.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutaInstrucciones, 1);
+            animacionEntrada(fondo, 'default', 1); 
+        }
+
+        function locutaInstrucciones(){
+            aplicacion.reproducirAudio(audio[1], clickBtn01, 1);
+            animacionEntrada(instrucciones, 'derecha-izquierda', 1, 1);
+            animacionEntrada(btn01, 'arriba-abajo', 1, 1.5);
+            animacionEntrada(btn02, 'arriba-abajo', 1, 2);
+        }
+
+        function clickBtn01(){
+            parpadear(btn01);
+        }
+        function clickBtn02(){
+            parpadear(btn02);
+        }
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+        btn01.click(function(){
+            if(btn01.css('cursor') == 'pointer'){
+                aplicacion.reproducirAudio(audio[2], clickBtn02, 1);
+                dejarParpadear(btn01);
+                animacionEntrada(info01, 'default', 1, 1);
+            }
+        });
+        btn02.click(function(){
+            if(btn02.css('cursor') == 'pointer'){
+                aplicacion.reproducirAudio(audio[3], finalPagina, 1);
+                dejarParpadear(btn02);
+                animacionEntrada(info02, 'default', 1, 1);
+            }
+        });
+
+    </script>
+</body>
+</html>

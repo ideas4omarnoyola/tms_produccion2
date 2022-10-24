@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 09</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+
+    <img class="elementos" id="fondo" src="../img/pagina09/fondo.png" data-posX="0" data-posY="0"/>  
+
+    <img class="elementos" id="esquema1" src="../img/pagina09/esquema1.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="esquema2" src="../img/pagina09/esquema2.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="esquema3" src="../img/pagina09/esquema3.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="esquema4" src="../img/pagina09/esquema4.png" data-posX="0" data-posY="0"/>
+    
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const fondo = $('#fondo');
+ 
+        const esquema1 = $('#esquema1');
+        const esquema2 = $('#esquema2');
+        const esquema3 = $('#esquema3');
+        const esquema4 = $('#esquema4');
+
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M2_09_1.mp3'),
+            new Audio('../audios/TMS_OEA_M2_09_2.mp3'),
+            new Audio('../audios/TMS_OEA_M2_09_3.mp3'),
+            new Audio('../audios/TMS_OEA_M2_09_4.mp3'),
+            new Audio('../audios/TMS_OEA_M2_09_5.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutaInfo01, 1);
+            animacionEntrada(fondo, 'default', 1); 
+        }
+
+        function locutaInfo01(){
+            aplicacion.reproducirAudio(audio[4], locutaInfo02, 1);
+            animacionEntrada(esquema1, 'arriba-abajo', 1, 1);
+        }
+        function locutaInfo02(){
+            aplicacion.reproducirAudio(audio[1], locutaInfo03, 1);
+            animacionEntrada(esquema2, 'arriba-abajo', 1, 1);
+        }
+        function locutaInfo03(){
+            aplicacion.reproducirAudio(audio[2], locutaInfo04, 1);
+            animacionEntrada(esquema3, 'arriba-abajo', 1, 1);
+        }
+        function locutaInfo04(){
+            aplicacion.reproducirAudio(audio[3], finalPagina, 1);
+            animacionEntrada(esquema4, 'arriba-abajo', 1, 1);
+        }
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>
